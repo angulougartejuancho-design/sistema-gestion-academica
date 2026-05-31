@@ -8,28 +8,55 @@ package sistema.gestion.academica;
  *
  * @author Daryelin
  */
-public class Estudiante  extends Persona{
+public class Estudiante extends Persona implements Evaluable {
+
     private String carrera;
 
-   
-    public Estudiante(String nombre, String identificacion, Direccion direccion, String carrera) {
+    /**
+     * Constructor de la clase Estudiante
+     * utilizando super para heredar atributos.
+     */
+    public Estudiante(String nombre, String identificacion,
+            Direccion direccion, String carrera) {
+
         super(nombre, identificacion, direccion);
         this.carrera = carrera;
     }
 
-   
+    /**
+     * Getter de carrera
+     */
     public String getCarrera() {
         return carrera;
     }
 
-    // Setter
+    /**
+     * Setter de carrera
+     */
     public void setCarrera(String carrera) {
         this.carrera = carrera;
     }
 
-    // Método sobrescrito
+    /**
+     * Método sobrescrito de Persona
+     */
     @Override
     public void describirRol() {
-        System.out.println("Soy un estudiante de la carrera de " + carrera);
+
+        System.out.println(
+                "Soy un estudiante de la carrera de " + carrera
+        );
+    }
+
+    /**
+     * Implementación del método evaluar
+     * de la interfaz Evaluable.
+     */
+    @Override
+    public void evaluar() {
+
+        System.out.println(
+                "El estudiante ha sido evaluado correctamente."
+        );
     }
 }
